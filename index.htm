@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Azhar University</title>
+        <link rel="stylesheet" href="general/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="general/css/bootstrap.min.css">
+        <link rel="stylesheet" href="general/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="index/css/index_style.css">
+    </head>
+    <body class="bg-info">
+        <!-- ******************************
+        ******************************
+        *** Navbar
+        ******************************
+        ****************************** -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand  mb-0 h1" href="#">
+                        <img src="general/images/azhar-logo.jpg" width="30" height="30" class="d-inline-block align-top rounded-circle" alt="azhar-logo">
+                        Azhar University
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <!-- <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li> -->
+                            <li class="nav-item float-right">
+                                <a class="nav-link" href="#">History</a>
+                            </li>
+                            <li class="nav-item float-right">
+                                <a class="nav-link" href="#">Sections</a>
+                            </li>
+                            <li class="nav-item float-right">
+                                <a class="nav-link" href="#">Courses</a>
+                            </li>
+                            <li class="nav-item float-right">
+                                <a class="nav-link" href="#">Professors</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-outline-primary my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+                                    data-target="#sign-in">
+                                    Sign in
+                            </button>
+                            <span class="text-light">&nbsp; or &nbsp;</span>
+                            <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+                                    data-target="#login">Log in</button>
+                        </form>
+                    </div>
+            </div>
+        </nav>
+
+        <!--**************************
+        ******************************
+        *** Sign in Modal
+        ******************************
+        ****************************** -->
+        <div class="modal fade" id="sign-in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose Your Position:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-auto">
+                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button">
+                        <i class="fas fa-graduation-cap"></i>
+                        Student
+                    </button>
+                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button">
+                    <i class="fas fa-briefcase"></i>
+                    Professor
+                </button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--**************************
+        ******************************
+        *** Login Modal
+        ******************************
+        ****************************** -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Login:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                    </div>
+                </form>
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <script src="general/js/jquery-3.2.1.min.js"></script>
+        <script src="general/js/popper.min.js"></script>
+        <script src="general/js/bootstrap.min.js"></script>
+    </body>
+</html>
