@@ -18,3 +18,4 @@
   
 - **Date**: 23/03/2018
   
+- Currently, You can access the interface of the website from [here](https://azexsoftware.github.io/Azhar-University-Project/)
