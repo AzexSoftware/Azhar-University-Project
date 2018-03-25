@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Courses</title>
+        <link rel="stylesheet" href="../../general/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="../../general/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../general/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/room_style.css">
+        <script src="../../general/js/angular.min.js"></script>
+        <script src="../../general/js/session.js"></script>
+    </head>
+    <body ng-app="app" ng-controller="myCtrl">
+            <!-- ******************************
+            ******************************
+            *** Navbar
+            ******************************
+            ****************************** -->
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand  mb-0 h1" href="#">
+                            <img src="../../general/images/azhar-logo.jpg" width="30" height="30" class="d-inline-block align-top rounded-circle" alt="azhar-logo">
+                            Azhar University
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Courses
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Java</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="../courses/courses.htm">Data Structure</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Logic</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">IC</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Signal</a>
+                                  </div>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle btn btn-outline-warning" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="name font-weight-bold text-capitalize">{{ session.username }}</span>
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Edit Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="../../index.htm">Log Out</a>
+                                  </div>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </nav>
+            <!-- the main body here  -->
+            <section class="container">
+                <h2 class="display-2 text-center" style="margin-top: 50px;">Welcome to Your room, {{ session.username }}</h2>
+            </section>
+            <!-- end the main body here  -->
+
+            <footer>
+                <div class="container">
+                    <p class="lead text-center">
+                         &copy; All Rights Reserved - Azex Team 2018
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <script src="../../general/js/jquery-3.2.1.min.js"></script>
+        <script src="../../general/js/popper.min.js"></script>
+        <script src="../../general/js/bootstrap.min.js"></script>
+        <script src="js/dynamic.js"></script>
+    </body>
+</html>

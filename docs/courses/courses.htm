@@ -7,8 +7,10 @@
         <link rel="stylesheet" href="../../general/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../general/css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/courses_style.css">
+        <script src="../../general/js/angular.min.js"></script>
+        <script src="../../general/js/session.js"></script>
     </head>
-    <body>
+    <body ng-app="app" ng-controller="myCtrl">
         <!--**************************
         ******************************
         *** Sidebar
@@ -72,12 +74,12 @@
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle btn btn-outline-warning" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="name font-weight-bold">Mosaab</span>
+                                      <span class="name font-weight-bold text-capitalize">{{ session.username }}</span>
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Edit Profile</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="#">Log Out</a>
+                                    <a class="dropdown-item text-danger" href="../../index.htm">Log Out</a>
                                   </div>
                                 </li>
                             </ul>

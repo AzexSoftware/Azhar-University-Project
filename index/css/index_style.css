@@ -1,0 +1,33 @@
+/* .modal-body {
+    width:
+} */
+/********************* registration form style *******************/
+.form-reg{
+    background-color: rgba(1, 47, 66, 0.9);
+    color: #ddd;
+}
+.form-reg input{
+    background-color: rgba(25,25,25,0.4);
+}
+.form-reg input:focus{
+    background-color: rgba(25,25,25,0.4);
+    color: #fff;
+}
+
+/********************* login form style *************************/
+.form-log{
+    background-color: rgb(34,90,83);
+    color: #ddd;
+}
+.form-log input{
+    background-color: rgba(1, 47, 66, 0.4);
+    color: beige;
+}
+.form-log input:focus{
+    background-color: rgba(1, 47, 66, 0.4);
+    color: #fff;
+}
+.form-check-input {
+    margin-left: 0px;
+    margin-top: 6px;
+}

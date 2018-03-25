@@ -1,0 +1,68 @@
+body{
+    background-color: #2CB3F3;
+    position: relative;
+    margin: 0;
+    padding-bottom: 9rem;
+    min-height: 100%;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+/***********************
+********************
+** Editing the Name of the student
+********************
+***********************/
+.name {
+    color: #ffc107;
+    /* color: #ffe484; */
+}
+.show>.btn-outline-warning.dropdown-toggle .name{
+    color: #313D42;
+}
+/***********************
+********************
+** Editing the dropdown
+********************
+***********************/
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #f4f4f4;
+}
+.dropdown-item {
+    padding: 0px 15px;
+    transition: .4s;
+}
+.dropdown-divider {
+    margin: 5px 0;
+}
+.dropdown-item:hover {
+    padding-left: 30px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+/***********************
+********************
+** Editing the Footer
+********************
+***********************/
+footer {
+    background-color: #333a41;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+footer p.lead {
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+}

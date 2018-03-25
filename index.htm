@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="general/css/bootstrap-reboot.min.css">
         <link rel="stylesheet" href="general/css/bootstrap.min.css">
         <link rel="stylesheet" href="general/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="docs/index/css/index_style.css">
+        <link rel="stylesheet" href="index/css/index_style.css">
+        <script src="../../general/js/angular.min.js"></script>
     </head>
-    <body class="bg-info">
+    <body class="bg-info" ng-app="app" ng-controller="formController">
         <!-- ******************************
         ******************************
         *** Navbar
@@ -70,14 +71,14 @@
                 </button>
               </div>
               <div class="modal-body mx-auto">
-                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button">
+                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal" data-target="#sign-in-st">
                         <i class="fas fa-graduation-cap"></i>
                         Student
                     </button>
-                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button">
+                  <button class="btn btn-outline-success my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal" data-target="#drRegStep1">
                     <i class="fas fa-briefcase"></i>
                     Professor
-                </button>
+                  </button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
@@ -85,6 +86,137 @@
             </div>
           </div>
         </div>
+
+
+        <!--**************************
+        ******************************
+        *** Sign in Modal for prof stage [1]
+        ******************************
+        ****************************** -->
+        <div class="modal fade" id="drRegStep1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Are You Professor ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                 <form>
+                  <div class="modal-body">
+                   <div class="form-group">
+                      <input type="text" name="username" class="form-control" id="exampleInputUser" aria-describedby="emailHelp" placeholder="username" ng-model="name_check">
+                    </div>
+                    <div class="form-group">
+                          <input type="password" name="serial" class="form-control" id="exampleInputSerial" placeholder="Serial Number" ng-model="pass_check">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" name="next" data-toggle="modal" data-target="#drRegStep2" ng-click="check()">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                  </div>
+                 </form>
+            </div>
+          </div>
+        </div>
+
+        <!--**************************
+        ******************************
+        *** Sign in Modal for student
+        ******************************
+        ****************************** -->
+        <div class="modal fade " id="sign-in-st" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Registration:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <!-- Start student Registration form -->
+              <form>
+              <div class="modal-body form-reg">
+               <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                          <input type="text" class="form-control" name="firstName" id="exampleInputFirstName" placeholder="First Name" ng-model="firstName_student">
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                          <input type="text" class="form-control" name="lastName" id="exampleInputLastName" placeholder="Last Name" ng-model="lastName_student">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" id="email_student" aria-describedby="emailHelp" placeholder="Enter email"
+                      ng-model="email_student">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                          <input type="password" class="form-control" name="pass" id="password_student" placeholder="Password" ng-model="password_student">
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                          <input type="password" class="form-control" name="conPass" id="exampleInputPassword2" placeholder="Confirm Password" ng-model="conPassword_student">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-6">
+                    <label for="acadmic">Academic Year:</label>
+                    <select class="form-control" name="academic-year" ng-model="year_student" style="display: inline-block">
+                           <option value="Pref">Prep</option>
+                           <option value="First">First</option>
+                           <option value="Second">Second</option>
+                           <option value="Third">Third</option>
+                           <option value="Fourth">Fourth</option>
+                    </select>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <label for="acadmic">Departments :</label>
+                    <select class="form-control" name="department" ng-model="department_student" style="display: inline-block">
+                           <option value="Electrical">Electrical Engineering</option>
+                           <option value="Petrolum">Petrolum & Mining</option>
+                           <option value="Computers">Systems & Computers</option>
+                           <option value="Mechanic">Mechanic</option>
+                           <option value="Civil">Civil</option>
+                           <option value="Architecture">Architecture</option>
+                           <option value="Planing">Planing</option>
+                    </select>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="gender">Gender: </label>
+                            <select class="form-control" name="gender" ng-model="gender_student" style="display: inline-block">
+                                   <option value="male">Male</option>
+                                   <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" name="submit" ng-click="insert()">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+            </form>
+            <!-- End student Registration form -->
+            </div>
+          </div>
+        </div>
+
 
         <!--**************************
         ******************************
@@ -100,27 +232,25 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
                 <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <div class="modal-body form-log">
+                   <div class="form-group">
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="login_name">
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                          <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="login_pass">
                     </div>
                     <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                     </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" name="login" value="login" ng-click="login()">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
                 </form>
-            </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-              </div>
             </div>
           </div>
         </div>
@@ -129,5 +259,7 @@
         <script src="general/js/jquery-3.2.1.min.js"></script>
         <script src="general/js/popper.min.js"></script>
         <script src="general/js/bootstrap.min.js"></script>
+        <script src="index/js/dynamic.js"></script>
+        <script src="index/js/controller.js"></script>
     </body>
 </html>
