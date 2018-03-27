@@ -8,22 +8,29 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
     *********************
     ***********************/
     $scope.insert = function(){
-        $http.post(
-            "index/php/insert_student.php",
-            {
-                "firstName_student"     : $scope.firstName_student,
-                "lastName_student"      : $scope.lastName_student,
-                "email_student"         : $scope.email_student,
-                "password_student"      : $scope.password_student,
-                "conPassword_student"   : $scope.conPassword_student,
-                "year_student"          : $scope.year_student,
-                "gender_student"        : $scope.gender_student,
-                "department_student"    : $scope.department_student
-            }
-        ).then(function(response){
-            // go to courses page
-            $window.location.href = '/docs/courses/courses.htm';
-        })
+        // if($scope.firstName_student && $scope.lastName_student && $scope.email_student && $scope.password_student && $scope.conPassword_student && $scope.year_student && $scope.gender_student && $scope.department_student && $scope.national) {
+            $http.post(
+                "index/php/insert_student.php",
+                {
+                    "firstName_student"     : $scope.firstName_student,
+                    "lastName_student"      : $scope.lastName_student,
+                    "email_student"         : $scope.email_student,
+                    "password_student"      : $scope.password_student,
+                    "conPassword_student"   : $scope.conPassword_student,
+                    "year_student"          : $scope.year_student,
+                    "gender_student"        : $scope.gender_student,
+                    "department_student"    : $scope.department_student,
+                    "national"              : $scope.national
+                }
+            ).then(function(response){
+                if(response.data == 1){
+                    // go to courses page
+                    $window.location.href = '/docs/room/room.htm';
+                }
+            });
+        // } else {
+        //     alert("You must fill out all the information!");
+        // }
     }
 
     /************************
@@ -36,9 +43,9 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
         name     = $scope.name_check;
         password = $scope.pass_check;
         if(name == "admin" && password == "admin"){
-            $window.location.href = "/docs/courses/courses.htm";
+            $window.location.href = "/docs/register(pro)/register_pro.htm";
         } else {
-            $window.location.href = "/index.htm";
+            alert("You must Fill out with correct information!");
         }
     }
     /************************

@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost" , "root" , "" , "dr-st-data");
+    $conn = mysqli_connect('localhost', 'root', '', 'azhar-uni');
     $info = json_decode(file_get_contents("php://input"));
 
     if(count($info)){
@@ -15,7 +15,8 @@
         $conPassword_student  = strip_tags($info->conPassword_student);
         $year_student         = strip_tags($info->year_student);
         $gender_student       = strip_tags($info->gender_student);
-        $department_student       = strip_tags($info->department_student);
+        $department_student   = strip_tags($info->department_student);
+        $national             = strip_tags($info->national);
 
         //********** stage 2 : protect data from sql injection. **************//
         $firstName_student      = mysqli_real_escape_string($conn, $firstName_student);
@@ -26,28 +27,28 @@
         $year_student           = mysqli_real_escape_string($conn, $year_student);
         $gender_student         = mysqli_real_escape_string($conn, $gender_student);
         $department_student     = mysqli_real_escape_string($conn, $department_student);
+        $national               = mysqli_real_escape_string($conn, $national);
 
-        // check & filtering data before storing it in database
-        if(empty($firstName_student) || empty($lastName_student) || empty($email_student) || empty($password_student) || empty($conPassword_student) ||  empty($gender_student) || empty($year_student) || empty($department_student) ){
-            $error1 = 'all fields are required.';
-        } elseif(filter_var($email_student, FILTER_VALIDATE_EMAIL) === 'false') {
-            $error2 = 'Enter a valid email.';
-        } elseif(strlen($password_student) <= 6 ) {
-            $error3 = 'The password must be more than 6 characters.';
-        } elseif($password_student !== $conPassword_student) {
-            $error4 = 'you must Enter the same password.';
-        }
+        // // check & filtering data before storing it in database
+        // if(empty($firstName_student) || empty($lastName_student) || empty($email_student) || empty($password_student) || empty($conPassword_student) ||  empty($gender_student) || empty($year_student) || empty($department_student) ){
+        //     $error1 = 'all fields are required.';
+        // } elseif(filter_var($email_student, FILTER_VALIDATE_EMAIL) === 'false') {
+        //     $error2 = 'Enter a valid email.';
+        // } elseif(strlen($password_student) <= 6 ) {
+        //     $error3 = 'The password must be more than 6 characters.';
+        // } elseif($password_student !== $conPassword_student) {
+        //     $error4 = 'you must Enter the same password.';
+        // }
 
         // INSERT students data INTO DB
-        $query  = "INSERT INTO `student` (first_name, last_name, email, password, conpass, academic_year, department, gender) VALUES ('$firstName_student', '$lastName_student', '$email_student', '$password_student', '$conPassword_student', '$year_student', '$department_student', '$gender_student')";
+        $query  = "INSERT INTO students (first_name, last_name, email, PASSWORD, academic_year, department, gender, national_id) VALUES ('$firstName_student', '$lastName_student', '$email_student', '$password_student', '$year_student', '$department_student', '$gender_student', '$national')";
 
         $insert = mysqli_query($conn, $query);
         if(!$insert){ // if not insert show the error
             echo "error" . mysqli_error($conn);
         } else {
-            echo "Data INserted Successfully!";
+            echo 1;
         }
-
     }
 
     // if(isset($_POST['login'])){

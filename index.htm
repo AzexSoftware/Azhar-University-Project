@@ -138,80 +138,87 @@
               <!-- Start student Registration form -->
               <form>
               <div class="modal-body form-reg">
-               <div class="container-fluid">
-                    <div class="row">
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                          <input type="text" class="form-control" name="firstName" id="exampleInputFirstName" placeholder="First Name" ng-model="firstName_student">
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                          <input type="text" class="form-control" name="lastName" id="exampleInputLastName" placeholder="Last Name" ng-model="lastName_student">
-                    </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-lg-12">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="email" id="email_student" aria-describedby="emailHelp" placeholder="Enter email"
-                      ng-model="email_student">
-                    </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                          <input type="password" class="form-control" name="pass" id="password_student" placeholder="Password" ng-model="password_student">
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                          <input type="password" class="form-control" name="conPass" id="exampleInputPassword2" placeholder="Confirm Password" ng-model="conPassword_student">
-                    </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-lg-6">
-                    <label for="acadmic">Academic Year:</label>
-                    <select class="form-control" name="academic-year" ng-model="year_student" style="display: inline-block">
-                           <option value="Pref">Prep</option>
-                           <option value="First">First</option>
-                           <option value="Second">Second</option>
-                           <option value="Third">Third</option>
-                           <option value="Fourth">Fourth</option>
-                    </select>
-                    </div>
-
-                    <div class="col-lg-6">
-                    <label for="acadmic">Departments :</label>
-                    <select class="form-control" name="department" ng-model="department_student" style="display: inline-block">
-                           <option value="Electrical">Electrical Engineering</option>
-                           <option value="Petrolum">Petrolum & Mining</option>
-                           <option value="Computers">Systems & Computers</option>
-                           <option value="Mechanic">Mechanic</option>
-                           <option value="Civil">Civil</option>
-                           <option value="Architecture">Architecture</option>
-                           <option value="Planing">Planing</option>
-                    </select>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="gender">Gender: </label>
-                            <select class="form-control" name="gender" ng-model="gender_student" style="display: inline-block">
-                                   <option value="male">Male</option>
-                                   <option value="female">Female</option>
-                            </select>
+                   <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                      <input type="text" class="form-control" name="firstName" id="exampleInputFirstName" placeholder="First Name" required = "required" ng-model="firstName_student">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                      <input type="text" class="form-control" name="lastName" id="exampleInputLastName" placeholder="Last Name" ng-model="lastName_student"  required = "required">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                  <input type="email" class="form-control" name="email" id="email_student" aria-describedby="emailHelp" placeholder="Enter email"
+                                  ng-model="email_student"  required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                      <input type="password" class="form-control" name="pass" id="password_student" placeholder="Password" ng-model="password_student"  required = "required">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                      <input type="password" class="form-control" name="conPass" id="exampleInputPassword2" placeholder="Confirm Password" ng-model="conPassword_student"  required = "required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                      <input type="text" class="form-control" name="national"  placeholder="Your National Number" ng-model="national"  required = "required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="acadmic">Academic Year:</label>
+                                <select class="form-control" name="academic-year" ng-model="year_student" style="display: inline-block" required="required">
+                                       <option value="Pref">Prep</option>
+                                       <option value="First">First</option>
+                                       <option value="Second">Second</option>
+                                       <option value="Third">Third</option>
+                                       <option value="Fourth">Fourth</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="acadmic">Departments :</label>
+                                <select class="form-control" name="department" ng-model="department_student" style="display: inline-block" required="required">
+                                       <option value="Electrical">Electrical Engineering</option>
+                                       <option value="Petrolum">Petrolum & Mining</option>
+                                       <option value="Computers">Systems & Computers</option>
+                                       <option value="Mechanic">Mechanic</option>
+                                       <option value="Civil">Civil</option>
+                                       <option value="Architecture">Architecture</option>
+                                       <option value="Planing">Planing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="gender">Gender: </label>
+                                <select class="form-control" name="gender" ng-model="gender_student" style="display: inline-block" required="required">
+                                       <option value="male">Male</option>
+                                       <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" name="submit" ng-click="insert()">
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
                     </div>
-            </form>
+                </form>
             <!-- End student Registration form -->
             </div>
           </div>

@@ -31,3 +31,12 @@
     margin-left: 0px;
     margin-top: 6px;
 }
+
+/*********************  astrick *************************/
+.astrick {
+    font-size: 29px;
+    color: #e60f0f;
+    position: absolute;
+    top: 3px;
+    right: 29px;
+}
