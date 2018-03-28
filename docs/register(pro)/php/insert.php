@@ -46,6 +46,9 @@
         $result2 = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result2);
         $doc_id = $row['id'];
+        session_start();
+        $_SESSION['id'] = $doc_id;
+        $_SESSION['username'] = $fname;
 
         if(!$result2){
             echo "Error: " . mysqli_error($conn);

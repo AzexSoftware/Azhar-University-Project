@@ -47,6 +47,8 @@
         if(!$insert){ // if not insert show the error
             echo "error" . mysqli_error($conn);
         } else {
+            session_start();
+            $_SESSION['username'] = $firstName_student;
             echo 1;
         }
     }

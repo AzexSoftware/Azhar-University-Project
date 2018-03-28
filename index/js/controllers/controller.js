@@ -64,7 +64,8 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
             if(response.data == "found_pro" || response.data == "found_student") {
                 $window.location.href = "docs/room/room.htm";
             } else {
-                alert("You must register first!");
+                // alert("You must register first!");
+                alert(response.data);
             }
         })
     }
