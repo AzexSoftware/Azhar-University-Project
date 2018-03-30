@@ -52,7 +52,8 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle btn btn-outline-warning" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <span class="name font-weight-bold text-capitalize">{{ session.username }}</span>
+                                  <span class="name font-weight-bold text-capitalize">
+                                      {{ session.username }}</span>
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Edit Profile</a>
@@ -66,7 +67,9 @@
         </nav>
         <!-- the main body here  -->
         <section class="container">
-            <h2 class="display-2 text-center" style="margin-top: 50px;">Hi, {{ session.username }}</h2>
+            <h2 class="display-2 text-center" style="margin-top: 50px;">
+                Hi, {{ session.username }}</h2>
+
         </section>
         <!-- end the main body here  -->
 

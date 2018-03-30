@@ -1,5 +1,6 @@
 body{
-    background-color: #2CB3F3;
+    /*background-color: #2CB3F3;*/
+    background-color: #54b2c5;
     position: relative;
     margin: 0;
     padding-bottom: 9rem;
@@ -203,6 +204,21 @@ html {
 #discussion .question .badge {
     font-size: 55%;
 }
+#discussion .all-question .display-4 {
+    font-size: 40px;
+}
+#discussion  .badge,
+#discussion  .btn {
+    border: 1px solid lightgray;
+}
+#discussion .btn-group-vertical {
+    box-shadow: inset 0px 0px 20px #cdcdcd;
+    border: 1px solid #a8a8a8;
+    border-radius: 7px;
+}
+#discussion .add-question {
+    margin-left: 31px;
+}
 #discussion .question .question-body {
     position: relative;
 }
@@ -212,7 +228,8 @@ html {
     left: 43%;
     z-index: 50;
 }
-#discussion .question .question-body p {
+#discussion .question .question-body p,
+#discussion #add-ques {
     background-color: #ddf8ff;
     padding: 20px;
     padding-top: 40px;
@@ -237,7 +254,8 @@ html {
 #discussion .room .student {
     margin-bottom: 20px;
 }
-#discussion .room .student .media-body {
+#discussion .room .student .media-body,
+#discussion #answer_section{
     background-color: #fafeff;
     padding: 20px;
     padding-bottom: 0;
@@ -245,7 +263,10 @@ html {
     border-radius: 10px;
     position: relative;
 }
-#discussion .room .student .media-body:before {
+#discussion #answer_section {
+    box-shadow: inset 0px 0px 11px #acacac;
+}
+/*#discussion .room .student .media-body:before {
     content: '';
     display: block;
     width: 0px;
@@ -257,7 +278,7 @@ html {
     border-bottom: 10px solid transparent;
     border-left: 10px solid transparent;
 
-}
+}*/
 #discussion .room .student:first-child .media-body {
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
@@ -273,25 +294,8 @@ html {
 #discussion form {
     margin-top: 30px;
 }
-#discussion hr.style-eight {
-    overflow: visible; /* For IE */
-    padding: 0;
-    border: none;
-    border-top: medium double #b0a7bd;
-    color: #333;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 400px;
-}
-#discussion hr.style-eight:after {
-    content: "§";
-    display: inline-block;
-    position: relative;
-    top: -0.7em;
-    font-size: 1.5em;
-    padding: 0 0.25em;
-    background: white;
+#discussion .add-group {
+    width: 155px;
 }
 /***********************
 ********************

@@ -1,6 +1,5 @@
 var app = angular.module('app', []);
 app.controller('formController', ["$scope", "$http", "$window", function($scope, $http, $window){
-
     /************************
     **********************
     ** Insert Function (student)

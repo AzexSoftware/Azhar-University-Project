@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="css/courses_style.css">
         <script src="../../general/js/lib/angular/angular.min.js"></script>
         <script src="../../general/js/services/session.js"></script>
+        <script src="js/controllers/discCtrl.js"></script>
     </head>
-    <body ng-app="app" ng-controller="myCtrl">
+    <body ng-app="app" ng-controller="discCtrl">
         <!--**************************
         ******************************
         *** Sidebar
@@ -120,7 +121,7 @@
                             <a class="nav-link" href="#quiz" data-target="quiz">Quiz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#discussion" data-target="discussion">Discussion</a>
+                            <a class="nav-link" href="#discussion" data-target="discussion" id="discussion_tab">Discussion</a>
                         </li>
                     </ul>
                 </div>
@@ -237,150 +238,103 @@
                     <div id="discussion" style="display: none;">
                         <h3 class="text-center">Discussion</h3>
                         <span class="daimond"></span>
+
+                        <button class="btn btn-outline-primary mb-2 add-question" id="add-question"> Add Question </button>
+
                         <!--**************************
-                        *** Question one
+                        *** Question Bar // Button group
                         ****************************** -->
-
-                        <div class="question">
-                            <h3 class="display-4">Question <span class="badge badge-pill badge-info"><i class="fas fa-hashtag text-warning"></i>1</span></h3>
-                            <div class="question-body">
-                                <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="auto" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                <p class="lead question-body">
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                </p>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-info answer-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Show / Hide Answers
-                        </button>
-                        <div class="collapse" id="collapseExample">
-                                <div class="room">
-                                    <!-- Answers -->
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="auto" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="right" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="left" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="left" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-2 ml-3">
+                                <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown"  ng-init="select_num()">
+                                    <button type="button" class="btn btn-outline-dark"  ng-repeat="question in questions"
+                                     ng-click="select_ans( question.id )" data-target="{{ question.id }}">
+                                        <h5 class="lead">
+                                            Question <span class="badge badge-pill badge-light"><i class="fas fa-hashtag text-warning"></i> {{ $index + 1 }}</span>
+                                        </h5>
+                                    </button>
                                 </div>
 
-                                <form>
-                                  <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Write Your Message:</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                  </div>
-                                  <input type="submit" class="btn btn-primary" value="submit">
+                            </div> <!-- End of first Column -->
+
+
+                            <!-- /************************************************************************
+                            ****************** Add question Area  ******************** **************
+                            ***************************************************************************/ -->
+                            <div class="col-md-9 ml-5" style="display: none;" id="add-area">
+                                <form  name="addQues" novalidate>
+                                    <div class="form-group">
+                                        <label for="add-ques" class="h4 text-center d-block">Add Your Question:</label>
+                                        <textarea class="form-control" id="add-ques" rows="3" ng-required="true" ng-model="question_body"></textarea>
+                                    </div>
+                                    <div class="mx-auto form-group add-group">
+                                        <button ng-disabled="addQues.$invalid" class="btn btn-primary" ng-click="add_question()">Submit</button>
+                                        <button  class="btn btn-outline-danger" id="close-btn">Close</button>
+                                    </div>
                                 </form>
-                        </div>
-
-                        <!-- <hr>  divider -->
-                        <hr class="style-eight">
-
-                        <!--**************************
-                        *** Question 2
-                        ****************************** -->
-                        <div class="question">
-                            <h3 class="display-4">Question <span class="badge badge-pill badge-info"><i class="fas fa-hashtag text-warning"></i>2</span></h3>
-                            <div class="question-body">
-                                <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="auto" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                <p class="lead question-body">
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                </p>
                             </div>
-                        </div>
-
-                        <button class="btn btn-info answer-btn" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-                            Show / Hide Answers
-                        </button>
-                        <div class="collapse" id="collapseExample1">
-                                <div class="room">
-                                    <!-- Answers -->
-                                    <div class="student">
-                                        <div class="media">
+                            <div class="col-md-9 ml-5" id="question-area">
+                                <!--**************************
+                                *** Question one
+                                ****************************** -->
+                                <div class="all-question" ng-repeat="question in questions" id="{{'question_' + question.id}}" style="display: none;">
+                                    <div class="question">
+                                        <h3 class="display-4">
+                                            Question <span class="badge badge-pill badge-info"><i class="fas fa-hashtag text-warning"></i>{{ $index + 1 }}</span>
+                                        </h3>
+                                        <div class="question-body">
                                             <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="auto" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
+                                            <p class="lead question-body">
+                                                {{ question.question }}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="right" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
+
+                                    <!-- /************************************************************************
+                                    ****************** The body of the answers / collapse **************
+                                    ***************************************************************************/ -->
+                                    <div class="collapse" id="{{ 'collapse_' + question.id }}">
+                                        <div class="room">
+                                            <!-- Answers -->
+                                            <div class="student" ng-repeat="answer in answers">
+                                                <div class="media">
+                                                    <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="auto" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
+                                                    <div class="media-body">
+                                                        <p>
+                                                            {{ answer.answer }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end of student answer -->
+
+                                        </div> <!-- end of room -->
+                                    </div> <!-- end of collapse -->
+
+                                    <br>
+                                    <!-- /************************************************************************
+                                    ****************** button to show / hide the answers **************
+                                    ***************************************************************************/ -->
+                                    <button class="btn btn-info answer-btn" type="button" data-toggle="collapse" data-target="{{ '#collapse_' + question.id }}" aria-expanded="false" aria-controls="{{ 'collapse_' + question.id }}">
+                                        Show / Hide Answers
+                                    </button>
+
+                                    <!-- /************************************************************************
+                                    ****************** To write the comment about the question **************
+                                    ***************************************************************************/ -->
+                                    <form name="messageForm" novalidate>
+                                        <div class="form-group">
+                                            <label for="answer_section" class="d-block h4 text-center">Write Your Answer:</label>
+                                            <textarea class="form-control" id="answer_section" rows="3" ng-required="true" ng-model="answer_body"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="left" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
+                                        <div class="mx-auto form-group add-group">
+                                            <button class="btn btn-primary" ng-disabled="messageForm.$invalid" ng-click="addAnswer( question.id, answer_body )">Submit</button>
                                         </div>
-                                    </div>
-                                    <div class="student">
-                                        <div class="media">
-                                            <img class="align-self-center mr-3 rounded-circle img-thumbnail"  data-toggle="tooltip" data-placement="left" title="Mosaab Muhammed" width="7%" src="images/professor.jpg" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
 
-                                <form>
-                                  <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Write Your Message:</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                  </div>
-                                  <input type="submit" class="btn btn-primary" value="submit">
-                                </form>
-                        </div>
+                            </div> <!-- End of Column 2 -->
+                        </div> <!-- End of Row -->
 
-                        <!--**************************
-                        *** Pagination
-                        ****************************** -->
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

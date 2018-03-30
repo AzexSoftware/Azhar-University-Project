@@ -56,8 +56,8 @@
                                     data-target="#login">Log in</button>
                         </form>
                     </div>
-            </div>
-        </nav>
+                </div>
+            </nav>
 
         <!--**************************
         ******************************
@@ -105,7 +105,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-                 <form name="stageOne" novalidate>
+                 <form name="stageOne" novalidate ng-submit="check()">
                   <div class="modal-body">
                    <div class="form-group">
                       <input type="text" name="username" class="form-control" id="exampleInputUser" aria-describedby="emailHelp" placeholder="username" ng-model="name_check" ng-required="true">
@@ -121,7 +121,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" name="next" data-toggle="modal" data-target="#drRegStep2" ng-click="check()">
+                        <input type="submit" class="btn btn-primary" name="next" data-toggle="modal" data-target="#drRegStep2" ng-disabled="stageOne.$invalid">
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
                   </div>
                  </form>

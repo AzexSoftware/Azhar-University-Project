@@ -47,3 +47,55 @@ $(function(){
         course_name.css("opacity", (1 - opacity_rate));
     });
 }());
+
+/************************************************************************
+****************** Toggle the group buttons in the discussion **************
+***************************************************************************/
+function toggleBtns(){
+    $('#discussion .btn-group-vertical button').on("click", function(){
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $('#add-area').hide(10);
+        $('#question-area').show(10);
+        var question_id = $(this).attr('data-target');
+        $('#discussion .all-question').siblings().hide();
+        $('#discussion #question_' + question_id).show();
+    });
+};
+setTimeout(toggleBtns,500);
+
+/************************************************************************
+****************** Add Question  ******************************
+***************************************************************************/
+function addQuestion() {
+    $('#add-question').on('click', function(){
+        $('#question-area').hide(10);
+        $('#add-area').show(10);
+        $('#discussion .btn-group-vertical button').removeClass('active');
+    });
+};
+
+setTimeout(addQuestion, 500);
+
+/************************************************************************
+****************** Close (Add Question) Section  ***************************
+***************************************************************************/
+function closeQuestion(){
+    $('#close-btn').on('click', function(){
+        $('#add-area').hide(10);
+        $('#question-area').show(10);
+        $('#discussion .btn-group-vertical button:first-child').click();
+    });
+}
+setTimeout(closeQuestion, 500);
+
+/************************************************************************
+****************** choose the fist question   ***************************
+***************************************************************************/
+function chooseFirst() {
+    $('#discussion_tab').on('click', function(){
+        $('#discussion .btn-group-vertical button:first-child').click();
+    });
+}
+
+setTimeout(chooseFirst, 500);

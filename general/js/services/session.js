@@ -3,8 +3,6 @@ app.controller('myCtrl', ['$rootScope', 'Session', function($rootScope, Session)
     Session.then(function(response){
         $rootScope.session = response;
     });
-
-
 }]);
 
 app.factory('Session', function($http){

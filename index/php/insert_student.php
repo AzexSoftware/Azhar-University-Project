@@ -47,8 +47,13 @@
         if(!$insert){ // if not insert show the error
             echo "error" . mysqli_error($conn);
         } else {
+            $query = "SELECT id FROM students WHERE national_id = '$national'";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
             session_start();
             $_SESSION['username'] = $firstName_student;
+            $_SESSION['person'] = 's';
+            $_SESSION['id'] = $row['id'];
             echo 1;
         }
     }
