@@ -2,6 +2,7 @@ var app = angular.module('app', []);
 
 app.controller("registerCtrl", ["$scope", "$http", "$window", function($scope, $http, $window){
     $scope.insert = function(){
+        // console.log("clicked!");
         $http.post(
             "php/insert.php",
             {
@@ -25,13 +26,10 @@ app.controller("registerCtrl", ["$scope", "$http", "$window", function($scope, $
             }
         ).then(function(response){
             if(response.data == 1){
-                $window.location.href = "docs/room/room.htm";
-            } elseif( response.data == 2) {
-                alert("You must choose Your courses below");
-            }
-            else {
+                $window.location.href = "../room/room.htm";
+            } else {
                 alert(response.data);
             }
-        };
+        })
     };
 }]);
