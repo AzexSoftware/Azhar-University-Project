@@ -246,7 +246,7 @@ html {
     border: 1px solid lightgray;
 }
 #discussion .btn-group-vertical {
-    box-shadow: inset 0px 0px 20px #cdcdcd;
+    box-shadow: inset 0px 0px 20px #7f7f7f;
     border: 1px solid #a8a8a8;
     border-radius: 7px;
 }

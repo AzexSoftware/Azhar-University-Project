@@ -1,6 +1,30 @@
 /* .modal-body {
     width:
 } */
+/********************* choose icon for font awesome *************************/
+button {
+    cursor: pointer;
+}
+button .fas {
+    font-size: 53px;
+    display: block;
+    position: relative;
+    top: -6px;
+    left: 0;
+}
+/********************* Stage One Registration *******************/
+.stageOne .modal-body{
+    background-color: #264455;
+    color: #ddd;
+}
+.stageOne input:not(input[type='submit']) {
+    background-color: rgba(25,25,25,0.4);
+}
+.stageOne input:focus{
+    background-color: rgba(25,25,25,0.4);
+    color: #fff;
+}
+
 /********************* registration form style *******************/
 .form-reg{
     background-color: rgba(1, 47, 66, 0.9);

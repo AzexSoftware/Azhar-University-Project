@@ -105,7 +105,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-                 <form name="stageOne" novalidate ng-submit="check()">
+                 <form name="stageOne" novalidate ng-submit="check()" class="stageOne">
                   <div class="modal-body">
                    <div class="form-group">
                       <input type="text" name="username" class="form-control" id="exampleInputUser" aria-describedby="emailHelp" placeholder="username" ng-model="name_check" ng-required="true">
@@ -206,6 +206,7 @@
                             <div class="col-lg-6">
                                 <label for="acadmic">Academic Year:</label>
                                 <select class="form-control" name="academic-year" ng-model="year_student" style="display: inline-block" required="required" ng-required="true">
+                                        <option value="null" selected>Choose...</option>
                                        <option value="Pref">Prep</option>
                                        <option value="First">First</option>
                                        <option value="Second">Second</option>
@@ -216,7 +217,8 @@
 
                             <div class="col-lg-6">
                                 <label for="acadmic">Departments :</label>
-                                <select class="form-control" name="department" ng-model="department_student" style="display: inline-block" required="required" ng-required="true">
+                                <select ui-select2 class="form-control" name="department" ng-model="department_student" required="required" ng-required="true" >
+                                    <option value="null" selected="selected">Choose...</option>
                                        <option value="Electrical">Electrical Engineering</option>
                                        <option value="Petrolum">Petrolum & Mining</option>
                                        <option value="Computers">Systems & Computers</option>
@@ -231,6 +233,7 @@
                             <div class="col-lg-6">
                                 <label for="gender">Gender: </label>
                                 <select class="form-control" name="gender" ng-model="gender_student" style="display: inline-block" required="required" ng-required="true">
+                                    <option value="null" selected>Choose...</option>
                                        <option value="male">Male</option>
                                        <option value="female">Female</option>
                                 </select>
