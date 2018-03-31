@@ -1,0 +1,140 @@
+body{
+    background-color: #ccc;
+    position: relative;
+    margin: 0;
+    padding-bottom: 9rem;
+    min-height: 100%;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+.astrick {
+    font-size: 29px;
+    color: rgb(119, 55, 55);
+    position: absolute;
+    top: 3px;
+    right: 29px;
+}
+/***********************
+********************
+** Editing the form
+********************
+***********************/
+/***************************** editing personal ******************/
+section.container section.personal{
+    width: 500px;
+    margin: 50px auto;
+    background-color: rgba(1, 47, 66, 0.9);
+    color: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+/*    border: 1px solid #ccceee;*/
+    box-shadow: 0px 0px 10px #8e8e8e inset;
+}
+section.container section.personal input{
+    background-color: rgba(25,25,25,0.4);
+}
+section.container section.personal div.form-group.btns{
+    margin-left: 400px;
+}
+/****************************** editing career **************/
+section.container section.career{
+/*    display: none;*/
+    width: 850px;
+    margin: 50px auto;
+    background-color: rgba(1, 47, 66, 0.9);
+    color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #8e8e8e inset;
+}
+section.container section.career div.row div.col{
+    width: 20%p;
+    margin-right: 5px;
+    padding: 0px;
+}
+section.container section.career div.row div.col:first-child{
+    margin-left: 0px;
+    padding-left: 10px;
+}
+section.container section.career div.row div.col:last-child{
+    margin-right: 0px;
+    padding-right: 10px;
+}
+section.container section.career div.row div.col div.multi-collapse div.card-body{
+    color: rgba(1, 47, 66, 0.9);
+    margin-top: 10px;
+    
+}
+section.container section.career div.row div.col div.multi-collapse div.card-body input.form-check-input,
+section.container section.career div.row div.col div.multi-collapse div.card-body input.form-check-label{
+    margin-left: 0px;
+}
+section.container section.career div.btns{
+    margin-left: 670px;
+    margin-top: 10px;
+}
+section.container section.career div.btns button{
+    margin-left: 5px;
+}
+/***************** editing social ******************************/
+section.container section.social{
+    width: 780px;
+    background-color: rgba(1, 47, 66, 0.9);
+    margin: 50px auto;
+    color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #8e8e8e inset;
+}
+section.container section.social div.btns{
+    margin-left: 300px;
+    margin: 30;
+}
+section.container section h2 {
+    margin-bottom: 30px;
+}
+
+
+/***********************
+********************
+** Editing the Footer
+********************
+***********************/
+/*
+div.all-course > div {
+    background-color: #fff;
+    color: rgb(1, 47, 66);
+    margin: 25px;
+    width: 150px;
+    padding: 10px;
+    padding-left: 30px;
+    transition: .4s;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px cadetblue;
+}
+*/
+
+
+/***********************
+********************
+** Editing the Footer
+********************
+***********************/
+footer {
+    background-color: #333a41;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+footer p.lead {
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+}

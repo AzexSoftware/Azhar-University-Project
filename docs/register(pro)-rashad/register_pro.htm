@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Azhar University</title>
+        <link rel="stylesheet" href="../../general/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="../../general/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../general/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/register_style.css">
+        <script src="../../general/js/lib/angular/angular.min.js"></script>
+        <script src="js/registerCtrl.js"></script>
+    </head>
+    <body class="" ng-app="app" ng-controller="registerCtrl">
+
+        <!-- ******************************
+        ******************************
+        *** Navbar
+        ******************************
+        ****************************** -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand  mb-0 h1" href="#">
+                    <img src="../../general/images/azhar-logo.jpg" width="30" height="30" class="d-inline-block align-top rounded-circle" alt="azhar-logo">
+                    Azhar University
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="#">History</a>
+                        </li>
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="#">Sections</a>
+                        </li>
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="#">Courses</a>
+                        </li>
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="#">Professors</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- ******************************
+        ******************************
+        *** Registration form
+        ******************************
+        ****************************** -->
+
+        <form  enctype="multipart/form-data">
+            <section class="container">
+                <section class="personal" id="personal">
+                    <h2 class="text-center">Personal Information</h2>
+
+                    <!-- ****************************************************************
+                    *********************** First & last Name ***********************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+<!--                        <label for="inputEmail3" class="col-sm-2 col-form-label">First Name:</label>-->
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="First Name" required="required" ng-model="fname">
+                        </div>
+
+<!--                        <label for="inputEmail" class="col-sm-2 col-form-label">Last Name:</label>-->
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Last Name" required="required" ng-model="lname">
+                        </div>
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Email  **************************************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+<!--                        <label for="inputEmail32" class="col-sm-2 col-form-label">Email</label>-->
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail32" placeholder="Email" required="required" ng-model="email">
+                        </div>
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Password & confirm   ***********************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+<!--                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>-->
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required="required" ng-model="password">
+                        </div>
+
+<!--                        <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password</label>-->
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="inputPassword31" placeholder="Confirm Password" required="required">
+                        </div>
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Phone Number  ******************************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+<!--                        <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Phone Number:</label>-->
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="Phone Number" required="required" ng-model="phone">
+                        </div>
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Gender *************************************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Gender</label>
+                        <div class="col-sm-6">
+                            <select class="custom-select" id="inputGroupSelect01" ng-model="gender">
+                                <option selected>Choose...</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <!-- ****************************************************************
+                        *********************** Image   ******************************
+                        ***************************************************************** -->
+                        <!-- <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Your image:</label>
+                        <div class="col-sm-4">
+                            <input type="file" name="image" ng-model="image" id="image">
+                        </div> -->
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Your Bio  ******************************
+                    ***************************************************************** -->
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputGroupSelect01">Your bio :</label><br>
+                        <div class="">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" ng-model="bio"></textarea>
+                        </div>
+                    </div>
+                     <!-- ****************************************************************
+                    *********************** Next stage  ******************************
+                    ***************************************************************** -->
+                    <div class="form-group btns">
+                        <button type="button" class="btn btn-primary" onclick="next1()">Next</button>
+                    </div>
+                </section>
+                
+<!--                <hr>-->
+                <section class="career" id="career" style="display: none;">
+                    <h2 class="text-center">Career</h2>
+
+                    <!-- ****************************************************************
+                    *********************** Current Position & Certificates *************
+                    ***************************************************************** -->
+                    <div class="form-group row">
+<!--                        <label for="inputEmail324" class="col-form-label">Current Position</label>-->
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail324" placeholder="Your Current Position" ng-model="position">
+                        </div>
+                        <div class="col-sm-7">
+                            <!--  <label class="col-form-label" for="inputGroupSelect01">Your Certificates:</label>   -->
+                            <textarea class="form-control" id="exampleFormControlTextarea" rows="4" placeholder="Certificates" ng-model="certificate"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- ****************************************************************
+                    *********************** Certificates  ******************************
+                    ***************************************************************** -->
+
+                    <!-- start the solutions box -->
+<!--                    <div class="form-group">-->
+                        <label class="" for="inputGroupSelect01" style="margin-right: 10px;">Your Subjects :</label>
+                        
+                      <!--  <div class="btn-group center-block">
+                            <button type="button" class="btn btn-secondary" data-target="prep">Prep</button>
+                            <button type="button" class="btn btn-secondary" data-target="first">First</button>
+                            <button type="button" class="btn btn-secondary" data-target="second">Second</button>
+                            <button type="button" class="btn btn-secondary" data-target="third">Third</button>
+                            <button type="button" class="btn btn-secondary" data-target="fourth">Fourth</button>
+                        </div> -->
+                        
+                        <!-- ****************************************************************
+                        *********************** Academic Year & courses  **************************
+                        ***************************************************************** -->
+                        <div class="all-course" required="required">
+                           
+                                <div class="btn-group">
+                                  <a class="btn btn-outline-success" data-toggle="collapse" href="#prep" aria-expanded="false" role="button" aria-controls="prep">prep</a>
+                                  <a class="btn btn-outline-success" data-toggle="collapse" href="#first" role="button" aria-expanded="false" aria-controls="first">first</a>
+                                  <a class="btn btn-outline-success"  data-toggle="collapse" href="#second" role="button" aria-expanded="false" aria-controls="second">second</a>
+                                  <a class="btn btn-outline-success"  data-toggle="collapse" href="#third" role="button" aria-expanded="false" aria-controls="third">third</a>
+                                  <a class="btn btn-outline-success" data-toggle="collapse" href="#fourth" role="button" aria-expanded="false" aria-controls="fourth">fourth</a>
+                                 </div> 
+                                
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="prep">
+                                      <div class="card card-body">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="first">
+                                      <div class="card card-body">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="second">
+                                      <div class="card card-body">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="third">
+                                      <div class="card card-body">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="fourth">
+                                      <div class="card card-body">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Default
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+<!--                    </div>-->
+                      <div class="btns">
+                        <button type="button" class="btn btn-success" onclick="prev1()">Previous</button>
+                        <button type="button" class="btn btn-primary" onclick="next2()">Next</button>
+                       </div>
+                </section>
+
+                <!-- ****************************************************************
+                *********************** Social Accounts  ******************************
+                ***************************************************************** -->
+<!--                <hr>-->
+                <section class="social" id="social" style="display: none;">
+                    <h2 class="text-center">Social Accounts</h2>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Facebook:</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Insert the link here" ng-model="fb">
+                        </div>
+
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Linked-In:</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Insert the link here" ng-model="linked_in">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Github:</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control"  placeholder="Insert the link here" ng-model="github">
+                        </div>
+
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Your Website:</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control"   placeholder="Insert the link here" ng-model="website">
+                        </div>
+                    </div>
+                     <div class="form-group submit">
+                    <div class="btns">
+                        <button type="button" class="btn btn-success" onclick="prev2()">Previous</button>
+                        <input type="submit" class="btn btn-info mx-auto" value="Sign In" ng-click="insert()">
+                    </div>
+                </div>
+                </section>
+
+               
+
+            </section>
+        </form>
+
+
+        <!-- ****************************************************************
+        *********************** Footer  ******************************
+        ***************************************************************** -->
+        <footer>
+            <div class="container">
+                <p class="lead text-center">
+                     &copy; All Rights Reserved - Azex Team 2018
+                </p>
+            </div>
+        </footer>
+
+        <script src="../../general/js/lib/bootstrap/jquery-3.2.1.min.js"></script>
+        <script src="../../general/js/lib/bootstrap/popper.min.js"></script>
+        <script src="../../general/js/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="js/register.js"></script>
+        <!-- <script src="js/controller.js"></script> -->
+    </body>
+</html>
