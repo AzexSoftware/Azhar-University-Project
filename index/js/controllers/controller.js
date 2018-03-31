@@ -24,7 +24,7 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
             ).then(function(response){
                 if(response.data == 1){
                     // go to courses page
-                    $window.location.href = 'Azhar-University-Project-master/docs/room/room.htm';
+                    $window.location.href = '/Azhar-University-Project-master/docs/room/room.htm';
                 }
             });
         // } else {
@@ -42,7 +42,7 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
         name     = $scope.name_check;
         password = $scope.pass_check;
         if(name == "admin" && password == "admin"){
-            $window.location.href = "Azhar-University-Project-master/docs/register(pro)/register_pro.htm";
+            $window.location.href = "/Azhar-University-Project-master/docs/register(pro)/register_pro.htm";
         } else {
             alert("You must Fill out with correct information!");
         }
@@ -61,7 +61,7 @@ app.controller('formController', ["$scope", "$http", "$window", function($scope,
             }
         ).then(function(response){
             if(response.data == "found_pro" || response.data == "found_student") {
-                $window.location.href = "Azhar-University-Project-master/docs/room/room.htm";
+                $window.location.href = "/Azhar-University-Project-master/docs/room/room.htm";
             } else {
                 // alert("You must register first!");
                 alert(response.data);
