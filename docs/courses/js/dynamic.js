@@ -7,14 +7,14 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
     document.getElementById("open").style.marginLeft = "-50px";
-}t
+}
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
     document.getElementById("open").style.marginLeft = "0";
 }
-/***********************gi
+/***********************
 ********************
 ** the Toolbars
 ********************
@@ -53,7 +53,6 @@ $(function(){
 ***************************************************************************/
 function toggleBtns(){
     $('#discussion .btn-group-vertical button').on("click", function(){
-        console.log('toggleBtn - Clicked!');
         $(this).addClass('active');
         $(this).siblings().removeClass('active');
         $('#add-area').hide(10);
@@ -70,7 +69,6 @@ setTimeout(toggleBtns,300);
 ***************************************************************************/
 function addQuestion() {
     $('#add-question').on('click', function(){
-        console.log('addQuestion - Clicked!');
         $('#question-area').hide(10);
         $('#add-area').show(10);
         if($('#discussion .btn-group-vertical button').hasClass('active')){
@@ -86,7 +84,6 @@ setTimeout(addQuestion, 300);
 ***************************************************************************/
 function closeQuestion(){
     $('#close-btn').on('click', function(){
-        console.log('closeQuestion - Clicked!');
         $('#add-area').hide(10);
         $('#question-area').show(10);
         $('#discussion .btn-group-vertical button:first-child').click();
@@ -100,8 +97,7 @@ setTimeout(closeQuestion, 300);
 ***************************************************************************/
 function chooseFirst() {
     $('#discussion_tab').on('click', function(){
-        console.log('chooseFirst - Clicked!');
-        $('#discussion .btn-group-vertical button:first-child').addClass('active');
+        $('#discussion .btn-group-vertical button:first-child').click();
     });
 }
 
